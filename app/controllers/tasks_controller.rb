@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   
     def new
       @task = Task.new
+      @categories = Category.all
     end
   
     def create
@@ -20,15 +21,18 @@ class TasksController < ApplicationController
       if @task.save
         redirect_to tasks_path, notice: 'Task was successfully created.'
       else
+        @categories = Category.all
         render :new
       end
       # binding.b
     end
   
     def edit
+      @categories = Category.all
     end
   
     def update
+      @categories = Category.all
       if @task.update(task_params)
         redirect_to tasks_path, notice: 'Task was successfully updated.'
       else
@@ -48,6 +52,6 @@ class TasksController < ApplicationController
     end
   
     def task_params
-      params.require(:task).permit(:title, :description, :due_date)
+      params.require(:task).permit(:title, :description, :due_date, :category_id, :priority)
     end
   end

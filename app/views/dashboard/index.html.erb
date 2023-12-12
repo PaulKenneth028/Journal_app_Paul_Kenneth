@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Your Tasks</h1>
+
+  <% if @tasks.any? %>
+    <ul class="list-group">
+      <% @tasks.each do |task| %>
+        <li class="list-group-item">
+          <span class="text-dark fw-bold"><%= task.title %></span>
+          <p class="mb-0"><%= task.description %></p>
+          <p class="mb-0"><strong>Category:</strong> <%= task.category&.name %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="mt-3">No tasks found.</p>
+  <% end %>
+</div>
