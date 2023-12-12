@@ -1,0 +1,23 @@
+<h1>Task Details</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Due Date:</strong>
+  <%= @task.due_date %>
+</p>
+
+<div>
+  <%= link_to "Edit this task", edit_task_path(@task) %> |
+  <%= link_to "Back to tasks", tasks_path %>
+
+  <%= button_to "Destroy this task", @task, method: :delete %>
+</div>
