@@ -8,6 +8,11 @@
           <span class="text-dark fw-bold"><%= task.title %></span>
           <p class="mb-0"><%= task.description %></p>
           <p class="mb-0"><strong>Category:</strong> <%= task.category&.name %></p>
+          <% if task.priority == 'high' %>
+          <p class="mb-0" style="font-size: larger;"><strong>Priority:</strong> <%= task.priority.capitalize %></p>
+          <% else %>
+          <p class="mb-0"><strong>Priority:</strong> <%= task.priority&.capitalize %></p>
+          <% end %>
         </li>
       <% end %>
     </ul>

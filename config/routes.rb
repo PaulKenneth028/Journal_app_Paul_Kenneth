@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
 
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
-  get 'home/about'
+  get 'about', to: 'home#about', as: 'about'
   root 'home#index'
 end
